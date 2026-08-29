@@ -1,0 +1,12 @@
+node_modules
+.vite
+out
+dist
+*.log
+pty-smoke.cjs
+.DS_Store
+test/bundle.cjs
+test/cwd-bundle.cjs
+test/path-bundle.cjs
+test/lifecycle-bundle.cjs
+.pty-dist

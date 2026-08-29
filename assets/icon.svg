@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+    <defs>
+        <linearGradient id="plate" x1="0" y1="0" x2="0.35" y2="1">
+            <stop offset="0" stop-color="#28303e"/>
+            <stop offset="1" stop-color="#12151b"/>
+        </linearGradient>
+        <linearGradient id="body" x1="0.3" y1="0.05" x2="0.7" y2="1">
+            <stop offset="0" stop-color="#accaff"/>
+            <stop offset="1" stop-color="#6288e2"/>
+        </linearGradient>
+    </defs>
+
+    <rect x="72" y="72" width="880" height="880" rx="212" fill="url(#plate)"/>
+
+    <!-- perch -->
+    <rect x="204" y="784" width="616" height="48" rx="24" fill="#9ece6a"/>
+
+    <!-- legs -->
+    <path d="M 500 714 L 500 792 M 574 714 L 574 792" stroke="#9ece6a" stroke-width="34" stroke-linecap="round"/>
+
+    <!-- bird: beak, head, back, single tail wedge, belly -->
+    <path fill="url(#body)" d="
+        M 858 400
+        L 758 364
+        C 742 306, 688 266, 622 270
+        C 546 275, 480 330, 438 408
+        C 388 386, 306 380, 236 402
+        C 288 470, 330 528, 358 578
+        C 400 634, 462 682, 528 692
+        C 636 708, 726 622, 740 514
+        C 746 470, 740 430, 734 410
+        Z"/>
+
+    <!-- wing: swept back, tip trailing down-left -->
+    <path fill="#4767ba" opacity="0.95" d="
+        M 486 446
+        C 566 418, 646 448, 672 508
+        C 640 592, 546 640, 468 610
+        C 420 578, 428 490, 486 446
+        Z"/>
+
+    <!-- eye -->
+    <circle cx="686" cy="360" r="29" fill="#12151b"/>
+</svg>
