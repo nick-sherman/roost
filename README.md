@@ -2,6 +2,8 @@
 
 A small macOS app that runs your project's commands and keeps them running.
 
+![Roost running two projects](assets/screenshot.png)
+
 Every project gets a `roost.yml` listing the commands it needs — a dev server, a
 log tail, a queue worker, a webhook forwarder. Roost starts them when it launches,
 gives each one a real terminal, brings them back when they crash, and puts a
