@@ -88,7 +88,7 @@ button.danger:hover {
     display: flex;
     height: 52px;
     justify-content: space-between;
-    padding: 0 10px 0 84px;
+    padding: 0 10px 0 92px;
     -webkit-app-region: drag;
 }
 

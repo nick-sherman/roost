@@ -89,7 +89,9 @@ function createWindow(): void {
         minWidth: 780,
         minHeight: 480,
         title: 'Roost',
-        titleBarStyle: 'hiddenInset',
+        titleBarStyle: 'hidden',
+        // 12px buttons topped at 20 centre on 26, the middle of the 52px .sidebar-head.
+        trafficLightPosition: { x: 20, y: 20 },
         backgroundColor: '#14161a',
         webPreferences: {
             preload: join(__dirname, 'preload.js'),
