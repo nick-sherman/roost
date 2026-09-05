@@ -16,6 +16,14 @@ const config: ForgeConfig = {
     asar: true,
     icon: 'assets/Roost',
     extraResource: ['assets', '.pty-dist/node-pty'],
+    extendInfo: {
+      // Project commands run inside Roost, so Roost is the app macOS asks about
+      // when one of them sends an Apple Event. Without this key macOS denies the
+      // event and never shows the prompt. `expo start` hits this when it checks
+      // whether the iOS Simulator is running.
+      NSAppleEventsUsageDescription:
+        'Roost runs your project commands. Some of them control other apps, such as the iOS Simulator.',
+    },
   },
   rebuildConfig: {},
   hooks: {
@@ -32,6 +40,20 @@ const config: ForgeConfig = {
 
         renameSync(join(contents, 'Resources', 'electron.icns'), join(contents, 'Resources', 'Roost.icns'));
         execFileSync('/usr/libexec/PlistBuddy', ['-c', 'Set :CFBundleIconFile Roost', join(contents, 'Info.plist')]);
+
+        // Prebuilt Electron signs itself as com.github.Electron, and editing
+        // Info.plist above invalidates that signature anyway. macOS records a
+        // permission grant against the signing identifier, so an unstable one
+        // loses the Automation grant on every rebuild.
+        execFileSync('/usr/bin/codesign', [
+          '--force',
+          '--deep',
+          '--sign',
+          '-',
+          '--identifier',
+          'com.electron.roost',
+          join(output, 'Roost.app'),
+        ]);
       }
     },
   },
